@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://do6avbe5ajw27"]
+
+[ext_resource type="Script" uid="uid://cou10qtxrp67r" path="res://options.gd" id="1_se8ut"]
+[ext_resource type="Texture2D" uid="uid://do8sl1e1qvmqp" path="res://Без имени.png" id="2_ao2gm"]
+[ext_resource type="Script" uid="uid://bnb8a0ksavl1o" path="res://music.gd" id="3_ao2gm"]
+[ext_resource type="AudioStream" uid="uid://cb8pr2dmkmse1" path="res://Нос Буяна.mp3" id="4_07a1d"]
+
+[node name="options" type="Control" unique_id=1843628472]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_se8ut")
+audio_music = "Music"
+
+[node name="Label" type="Label" parent="." unique_id=1191787372]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "Options
+"
+
+[node name="back" type="Button" parent="." unique_id=1406964132]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 3.0
+offset_right = 57.0
+offset_bottom = 43.0
+icon = ExtResource("2_ao2gm")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2037520071]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.0
+offset_top = -69.0
+offset_right = 81.0
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1759094389]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Volume"
+
+[node name="sounds" type="HSlider" parent="VBoxContainer" unique_id=124383089]
+layout_mode = 2
+
+[node name="music" type="HSlider" parent="VBoxContainer" unique_id=258967195]
+layout_mode = 2
+min_value = -80.0
+script = ExtResource("3_ao2gm")
+
+[node name="general" type="HSlider" parent="VBoxContainer" unique_id=1958442950]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=303429447]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.172
+anchor_top = 0.059000004
+anchor_right = 0.172
+anchor_bottom = 0.059000004
+offset_left = 251.85599
+offset_top = 245.768
+offset_right = 295.856
+offset_bottom = 295.768
+
+[node name="Label" type="Label" parent="VBoxContainer2" unique_id=1084063257]
+custom_maximum_size = Vector2(-1, 15)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Sounds"
+
+[node name="Label2" type="Label" parent="VBoxContainer2" unique_id=939153153]
+custom_maximum_size = Vector2(-1, 15)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Music"
+
+[node name="Label3" type="Label" parent="VBoxContainer2" unique_id=2123047226]
+custom_maximum_size = Vector2(-1, 15)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "General"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=613158114]
+stream = ExtResource("4_07a1d")
+autoplay = true
+
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]
+[connection signal="value_changed" from="VBoxContainer/music" to="." method="_on_music_value_changed"]

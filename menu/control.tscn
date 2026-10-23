@@ -1,0 +1,222 @@
+[gd_scene format=3 uid="uid://d28hidgn440wi"]
+
+[ext_resource type="Script" uid="uid://dtwjud80id5pn" path="res://control.gd" id="1_0fbet"]
+[ext_resource type="AudioStream" uid="uid://cb8pr2dmkmse1" path="res://Нос Буяна.mp3" id="2_62e2m"]
+[ext_resource type="Texture2D" uid="uid://do8sl1e1qvmqp" path="res://Без имени.png" id="3_qtu10"]
+[ext_resource type="Script" uid="uid://bnb8a0ksavl1o" path="res://music.gd" id="4_ee4bf"]
+[ext_resource type="Script" uid="uid://g5x5tdr41jym" path="res://sounds.gd" id="4_iy58a"]
+[ext_resource type="Script" uid="uid://cghsdypxx3p2a" path="res://general.gd" id="6_6a6wx"]
+[ext_resource type="Script" uid="uid://cc0qi7u38ktb" path="res://screen.gd" id="7_sky72"]
+[ext_resource type="Script" uid="uid://b7w48rnvh1jb8" path="res://option_button.gd" id="8_6a6wx"]
+
+[node name="Control" type="Control" unique_id=1424454979]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -93.0
+offset_top = -30.0
+offset_right = 93.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0fbet")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=698264311]
+visible = false
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.5
+offset_top = -126.0
+offset_right = 110.5
+offset_bottom = 126.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="new_game" type="Button" parent="VBoxContainer" unique_id=644596933]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+text = "New Game"
+flat = true
+
+[node name="continue" type="Button" parent="VBoxContainer" unique_id=1995723150]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+text = "Continue "
+flat = true
+
+[node name="options" type="Button" parent="VBoxContainer" unique_id=1269464462]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+text = "Options "
+flat = true
+
+[node name="quit" type="Button" parent="VBoxContainer" unique_id=1073302938]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+text = "Quit
+"
+flat = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=559967182]
+stream = ExtResource("2_62e2m")
+autoplay = true
+bus = &"music"
+
+[node name="options" type="Panel" parent="." unique_id=232145524]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -572.0
+offset_top = -321.0
+offset_right = 575.0
+offset_bottom = 323.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="options" unique_id=373839047]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -51.5
+offset_right = 51.5
+offset_bottom = 42.5
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 27
+text = "Options"
+
+[node name="back" type="Button" parent="options" unique_id=1217209158]
+layout_mode = 0
+offset_top = 11.0
+offset_right = 51.0
+offset_bottom = 51.0
+icon = ExtResource("3_qtu10")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="options" unique_id=1272299231]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.0
+offset_top = -69.0
+offset_right = 81.0
+offset_bottom = 93.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="options/VBoxContainer" unique_id=1984698298]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Volume"
+
+[node name="sounds" type="HSlider" parent="options/VBoxContainer" unique_id=543946671]
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 1.0
+script = ExtResource("4_iy58a")
+
+[node name="music" type="HSlider" parent="options/VBoxContainer" unique_id=1681380667]
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 1.0
+script = ExtResource("4_ee4bf")
+
+[node name="general" type="HSlider" parent="options/VBoxContainer" unique_id=625036649]
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 1.0
+script = ExtResource("6_6a6wx")
+
+[node name="Label2" type="Label" parent="options/VBoxContainer" unique_id=1720038491]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Display"
+
+[node name="screen" type="CheckButton" parent="options/VBoxContainer" unique_id=1074751552]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 6
+script = ExtResource("7_sky72")
+
+[node name="OptionButton" type="OptionButton" parent="options/VBoxContainer" unique_id=872555657]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+selected = 0
+item_count = 4
+popup/item_0/text = "1920x1080"
+popup/item_0/id = 0
+popup/item_1/text = "1600x900"
+popup/item_1/id = 1
+popup/item_2/text = "1280x720"
+popup/item_2/id = 2
+popup/item_3/text = "640x480"
+popup/item_3/id = 3
+script = ExtResource("8_6a6wx")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="options" unique_id=991661338]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.172
+anchor_top = 0.059000004
+anchor_right = 0.172
+anchor_bottom = 0.059000004
+offset_left = 251.856
+offset_top = 244.004
+offset_right = 306.85602
+offset_bottom = 349.004
+
+[node name="Label" type="Label" parent="options/VBoxContainer2" unique_id=519401549]
+custom_maximum_size = Vector2(-1, 15)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Sounds"
+
+[node name="Label2" type="Label" parent="options/VBoxContainer2" unique_id=1789539283]
+custom_maximum_size = Vector2(-1, 15)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Music"
+
+[node name="Label3" type="Label" parent="options/VBoxContainer2" unique_id=1551625539]
+custom_maximum_size = Vector2(-1, 15)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 10
+text = "General"
+
+[node name="Label4" type="Label" parent="options/VBoxContainer2" unique_id=358352154]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_font_sizes/font_size = 11
+text = "Fullscreen"
+
+[connection signal="pressed" from="VBoxContainer/new_game" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="VBoxContainer/continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="VBoxContainer/options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="options/back" to="." method="_on_back_pressed"]
+[connection signal="value_changed" from="options/VBoxContainer/sounds" to="options/VBoxContainer/sounds" method="_on_value_changed"]
+[connection signal="value_changed" from="options/VBoxContainer/music" to="options/VBoxContainer/music" method="_on_value_changed"]
+[connection signal="value_changed" from="options/VBoxContainer/general" to="options/VBoxContainer/general" method="_on_value_changed"]
+[connection signal="toggled" from="options/VBoxContainer/screen" to="options/VBoxContainer/screen" method="_on_toggled"]
+[connection signal="item_selected" from="options/VBoxContainer/OptionButton" to="options/VBoxContainer/OptionButton" method="_on_item_selected"]
